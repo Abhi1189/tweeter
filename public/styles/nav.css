@@ -1,0 +1,38 @@
+#nav-bar {
+  background-color: #00a087;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  padding-left: 2em;
+  padding-right: 2em;
+  }
+
+#nav-bar .logo {
+  float: left;
+  height: 80px;
+  width: 80px;
+}
+
+#nav-bar .header {
+  line-height: 80px;
+  font-size: 2em;
+  margin-left: 5px;
+  font-family: papyrus;
+}
+
+#nav-bar button {
+  float: right;
+  margin-top: 30px;
+  background-color: lightgreen;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border: 1px solid white;
+  border-radius: 4px 4px 4px 4px;
+  font-family: papyrus;
+}
+
+#nav-bar button:hover {
+    background-color: red;
+}

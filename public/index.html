@@ -7,26 +7,67 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
 
+    <!-- External font -> Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i" rel="stylesheet">
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <!-- CSS File for Nav-bar -->
+    <link rel='stylesheet' href='/styles/nav.css' type='text/css' />
+
+    <!-- CSS File for new-tweet section and including parts -->
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+
+    <!-- CSS File for tweet Conatiner -->
+    <link rel="stylesheet" href="/styles/tweetContainer.css" type="text/css" />
 
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+
+    
+    <!-- Character Counter JS -->
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
   </head>
 
   <body>
 
     <!-- Top nav bar (fixed) -->
     <nav id="nav-bar">
-      <img class="logo" src="/images/bird.png" width="80px" height="80px">
+      <img class="logo" src="/images/bird.png" >
       <span class="header">Tweeter</span>
+      <button>Compose</button>
     </nav>
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form method="POST" action="/tweets/">
+          <textarea id= "tweetContent" name="text" placeholder="What are you humming about?"></textarea>
+          <input type="submit" value="Tweet">
+          <span class="counter">140</span>
+          <span class="errorMsg"></span>
+        </form>
+      </section>
+
+      <section id="tweetContainer">
+        <article class="tweet">
+          <header class = "tweetHeader">
+            <img src="/images/wolfForTweeter.jpg">
+            <h1>Wolf</h1>
+            <span>@Direwolf</span>
+          </header>
+          <div class="tweetBody">We are the North.</div>
+          <footer>
+            <span>10 days ago</span>
+          </footer>
+        </article>
+      </section>
     </main>
 
   </body>
