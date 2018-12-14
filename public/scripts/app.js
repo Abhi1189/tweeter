@@ -69,6 +69,7 @@ $(document).ready(function() {
         data: $form
       })
       .then(function(data){
+        $('#tweetContainer').empty();
         loadTweets();
         $('.counter').text('140');
         $('#tweetContent').val('').empty();
