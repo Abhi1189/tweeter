@@ -54,3 +54,16 @@ footer {
   border-top: 1px solid black;
 }
 
+div.icons {
+  opacity: 0;
+  float: right;
+  margin-right: 10px;
+}
+
+article.tweet:hover div.icons{
+  opacity: 1;
+}
+
+div.icons .fa-heart, div.icons .fa-retweet{
+  margin-left: 2px;
+}

@@ -22,6 +22,8 @@ $(document).ready(function() {
     let $header = $('<header>').addClass('tweetHeader');
 
     //append image, handle and h1 to our header now
+    //The order in which we define these affects their position in the header.
+    //The css might not agree with it. 
     $('<img>').attr('src', tweetData.user.avatars.small).appendTo($header);
     $('<h1>').text(tweetData.user.name).appendTo($header);
     $('<span>').text(tweetData.user.handle).appendTo($header);
@@ -31,9 +33,18 @@ $(document).ready(function() {
     //create <div> tag and add body of the tweet to it
     $('<div>').addClass('tweetBody').text(tweetData.content.text).appendTo($tweet);
 
-    //span tag for date & appendTo footer. 
-    let $span = $('<span>').text(tweetData.created_at);
+    //span tag for date & appendTo footer.
+    //let $timestamp = moment(tweetData.created_at).fromNow();
+    let $timeStamp = moment(tweetData.created_at).fromNow();    
+    let $span = $('<span>').text($timeStamp);
     let $footer = $('<footer>').append($span);
+
+    let $div = $('<div>').addClass('icons');
+    $(`<i class="fas fa-flag"></i>`).appendTo($div); // add each icon
+    $(`<i class="fas fa-retweet"></i>`).appendTo($div);
+    $(`<i class="fas fa-heart"></i>`).appendTo($div); 
+
+    $div.appendTo($footer);
 
     $tweet.append($footer);
 
@@ -55,6 +66,7 @@ $(document).ready(function() {
     }
   }
 
+  //func. for handling the button event.
   function submitHandler(event){
     event.preventDefault();
 
@@ -65,7 +77,7 @@ $(document).ready(function() {
     if(formValidate()){
       $.ajax({
         method: 'POST',
-        url: '/tweets',
+        url: '/tweets/',
         data: $form
       })
       .then(function(data){
@@ -95,8 +107,11 @@ $(document).ready(function() {
   loadTweets();
 
   $(function(){
+    //default setting - hidden
     $('section.new-tweet').hide();
+
     $('#nav-bar button').on('click', function(){
+      //slideToggle and put the cursor in the textarea..focus()
       $('.new-tweet').slideToggle();
       $('#tweetContent').focus();
     })
